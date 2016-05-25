@@ -17,7 +17,7 @@ class ApplicationSidebar extends React.Component {
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}}>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='Tableau de bord' href='/' />
-                  <SidebarNavItem glyph='icon-feather-mail' name={<span>E-mail <BLabel className='bg-darkgreen45 fg-white'>3</BLabel></span>}>
+                  <SidebarNavItem glyph='icon-feather-mail' name={<span>Email <BLabel className='bg-darkgreen45 fg-white'>3</BLabel></span>}>
                     <SidebarNav>
                       <SidebarNavItem glyph='icon-feather-inbox' name='Boite de reception' />
                       <SidebarNavItem glyph='icon-dripicons-message' name='Ajouter' />
