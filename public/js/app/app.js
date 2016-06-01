@@ -4090,7 +4090,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -4114,112 +4114,547 @@
 	var _globalJsxSidebar_component = __webpack_require__(38);
 
 	var Brand = (function (_React$Component) {
-	  _inherits(Brand, _React$Component);
+	    _inherits(Brand, _React$Component);
 
-	  function Brand() {
-	    _classCallCheck(this, Brand);
+	    function Brand() {
+	        _classCallCheck(this, Brand);
 
-	    _get(Object.getPrototypeOf(Brand.prototype), 'constructor', this).apply(this, arguments);
-	  }
-
-	  _createClass(Brand, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        NavHeader,
-	        this.props,
-	        React.createElement(
-	          NavBrand,
-	          { tabIndex: '-1' },
-	          React.createElement('img', { src: '/imgs/logo.png', alt: 'rubix', width: '111', height: '28' })
-	        )
-	      );
+	        _get(Object.getPrototypeOf(Brand.prototype), 'constructor', this).apply(this, arguments);
 	    }
-	  }]);
 
-	  return Brand;
+	    _createClass(Brand, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                NavHeader,
+	                this.props,
+	                React.createElement(
+	                    NavBrand,
+	                    { tabIndex: '-1' },
+	                    React.createElement('img', { src: '/imgs/logo.png', alt: 'rubix', width: '111', height: '28' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Brand;
 	})(React.Component);
 
-	var HeaderNavigation = React.createClass({
-	  displayName: 'HeaderNavigation',
+	var LocaleMenuItem = (function (_React$Component2) {
+	    _inherits(LocaleMenuItem, _React$Component2);
 
-	  mixins: [_reactRouter.State, _reactRouter.Navigation],
-	  render: function render() {
-	    var props = _extends({}, this.props, {
-	      className: (0, _classnames2['default'])('pull-right', this.props.className)
-	    });
+	    function LocaleMenuItem() {
+	        _classCallCheck(this, LocaleMenuItem);
 
-	    return React.createElement(
-	      NavContent,
-	      props,
-	      React.createElement(
-	        Nav,
-	        null,
-	        React.createElement(
-	          NavItem,
-	          { className: 'logout', href: '#' },
-	          React.createElement(Icon, { bundle: 'fontello', glyph: 'off-1' })
-	        )
-	      )
-	    );
-	  }
+	        _get(Object.getPrototypeOf(LocaleMenuItem.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(LocaleMenuItem, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                MenuItem,
+	                _extends({}, this.props, { lang: null, href: '#' }),
+	                React.createElement(
+	                    Grid,
+	                    null,
+	                    React.createElement(
+	                        Row,
+	                        null,
+	                        React.createElement(
+	                            Col,
+	                            { xs: 2 },
+	                            React.createElement('img', { src: '/imgs/flags/flags/flat/32/' + this.props.flag + '.png', width: '32', height: '32' })
+	                        ),
+	                        React.createElement(
+	                            Col,
+	                            { xs: 10 },
+	                            React.createElement(Entity, { className: 'lang-menu-text', entity: 'languageMenu', data: { lang: this.props.lang } })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return LocaleMenuItem;
+	})(React.Component);
+
+	var DirectNavItem = React.createClass({
+	    displayName: 'DirectNavItem',
+
+	    mixins: [_reactRouter.State, _reactRouter.Navigation],
+	    render: function render() {
+	        var active = false;
+	        var currentLocation = this.context.router.state.location.pathname;
+
+	        if (!active && this.props.path) {
+	            active = this.isActive(this.props.path) && currentLocation == this.props.path;
+	        }
+
+	        var classes = (0, _classnames2['default'])({
+	            'pressed': active
+	        });
+	        return React.createElement(
+	            NavItem,
+	            _extends({ className: classes }, this.props),
+	            React.createElement(
+	                _reactRouter.Link,
+	                { to: this.props.path },
+	                React.createElement(Icon, { bundle: this.props.bundle || 'fontello', glyph: this.props.glyph })
+	            )
+	        );
+	    }
 	});
 
-	var Header = (function (_React$Component2) {
-	  _inherits(Header, _React$Component2);
+	var Skins = (function (_React$Component3) {
+	    _inherits(Skins, _React$Component3);
 
-	  function Header() {
-	    _classCallCheck(this, Header);
+	    function Skins() {
+	        _classCallCheck(this, Skins);
 
-	    _get(Object.getPrototypeOf(Header.prototype), 'constructor', this).apply(this, arguments);
-	  }
-
-	  _createClass(Header, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        Grid,
-	        _extends({ id: 'navbar' }, this.props),
-	        React.createElement(
-	          Row,
-	          null,
-	          React.createElement(
-	            Col,
-	            { xs: 12 },
-	            React.createElement(
-	              NavBar,
-	              { fixedTop: true, id: 'rubix-nav-header' },
-	              React.createElement(
-	                Container,
-	                { fluid: true },
-	                React.createElement(
-	                  Row,
-	                  null,
-	                  React.createElement(
-	                    Col,
-	                    { xs: 3, visible: 'xs' },
-	                    React.createElement(_globalJsxSidebar_component.SidebarBtn, null)
-	                  ),
-	                  React.createElement(
-	                    Col,
-	                    { xs: 6, sm: 4 },
-	                    React.createElement(Brand, null)
-	                  ),
-	                  React.createElement(
-	                    Col,
-	                    { xs: 3, sm: 8 },
-	                    React.createElement(HeaderNavigation, null)
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
+	        _get(Object.getPrototypeOf(Skins.prototype), 'constructor', this).apply(this, arguments);
 	    }
-	  }]);
 
-	  return Header;
+	    _createClass(Skins, [{
+	        key: 'switchSkin',
+	        value: function switchSkin(skin, e) {
+	            e.preventDefault();
+	            e.stopPropagation();
+	            for (var i = 0; i < Skins.skins.length; i++) {
+	                $('html').removeClass(Skins.skins[i]);
+	            }
+	            $('html').addClass(skin);
+	            vex.close(this.props.id);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                Grid,
+	                { style: { margin: '-2em' } },
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 12, className: 'text-center bg-darkgrayishblue75', style: { marginBottom: 25 } },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'fg-white', style: { fontSize: 24, lineHeight: 1, padding: '25px 10px' } },
+	                            'Choose a theme:'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'default') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', style: { color: '#E76049' } })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'green') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', className: 'fg-darkgreen45' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'blue') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', className: 'fg-blue' })
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'purple') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', className: 'fg-purple' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'brown') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', className: 'fg-brown' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-center' },
+	                        React.createElement(
+	                            'a',
+	                            { href: '#', style: { border: 'none' }, onClick: this.switchSkin.bind(this, 'cyan') },
+	                            React.createElement(Icon, { glyph: 'icon-fontello-stop icon-4x', className: 'fg-darkcyan' })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Skins;
+	})(React.Component);
+
+	Skins.skins = ['default', 'green', 'blue', 'purple', 'brown', 'cyan'];
+
+	var CommitChart = (function (_React$Component4) {
+	    _inherits(CommitChart, _React$Component4);
+
+	    function CommitChart() {
+	        _classCallCheck(this, CommitChart);
+
+	        _get(Object.getPrototypeOf(CommitChart.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CommitChart, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var chart = new Rubix('#commit-column-chart', {
+	                width: '100%',
+	                height: 100,
+	                hideAxisAndGrid: true,
+	                hideLegend: true,
+	                tooltip: {
+	                    color: '#2EB398'
+	                },
+	                margin: {
+	                    top: 25,
+	                    bottom: 25
+	                }
+	            });
+
+	            var alerts = chart.column_series({
+	                name: 'Commits',
+	                color: '#2EB398'
+	            });
+
+	            alerts.addData([{ x: 10, y: 20 }, { x: 11, y: 50 }, { x: 12, y: 35 }, { x: 13, y: 30 }, { x: 14, y: 20 }, { x: 15, y: 25 }, { x: 16, y: 30 }, { x: 17, y: 50 }, { x: 18, y: 20 }, { x: 19, y: 30 }, { x: 20, y: 50 }, { x: 21, y: 20 }, { x: 22, y: 50 }, { x: 23, y: 35 }, { x: 24, y: 30 }, { x: 25, y: 20 }, { x: 26, y: 30 }]);
+
+	            $(window).trigger('resize');
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                Grid,
+	                { style: { marginBottom: -10 } },
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        React.createElement('div', { id: 'commit-column-chart' })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return CommitChart;
+	})(React.Component);
+
+	var BodyLayout = (function (_React$Component5) {
+	    _inherits(BodyLayout, _React$Component5);
+
+	    function BodyLayout() {
+	        _classCallCheck(this, BodyLayout);
+
+	        _get(Object.getPrototypeOf(BodyLayout.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(BodyLayout, [{
+	        key: 'bodyLayoutRadioChange',
+	        value: function bodyLayoutRadioChange(value) {
+	            if (!value) return;
+	            if (value === 'fixed-body') {
+	                $('html').removeClass('static');
+	                localStorage.setItem('bodyLayout', 'fixed-body');
+	                ReactBootstrap.Dispatcher.emit('sidebar:reinitialize');
+	            } else if (value === 'static-body') {
+	                $('html').addClass('static');
+	                localStorage.setItem('bodyLayout', 'static-body');
+	                ReactBootstrap.Dispatcher.emit('sidebar:destroy');
+	            }
+	            this.refs[value].checked = true;
+	        }
+	    }, {
+	        key: 'handleBodyLayoutRadioChange',
+	        value: function handleBodyLayoutRadioChange(e) {
+	            this.bodyLayoutRadioChange(e.target.value);
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.bodyLayoutRadioChange(localStorage.getItem('bodyLayout'));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                Grid,
+	                null,
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 8 },
+	                        React.createElement(
+	                            Radio,
+	                            { browser: true, ref: 'fixed-body', value: 'fixed-body', name: 'switch-body-layout', defaultChecked: true, onChange: this.handleBodyLayoutRadioChange.bind(this) },
+	                            'Fixed (Header + Sidebar)'
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Col,
+	                        { xs: 4, className: 'text-right' },
+	                        React.createElement(
+	                            Radio,
+	                            { browser: true, ref: 'static-body', value: 'static-body', name: 'switch-body-layout', onChange: this.handleBodyLayoutRadioChange.bind(this) },
+	                            'Static'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return BodyLayout;
+	})(React.Component);
+
+	var IconStyle = {
+	    fontSize: '3em'
+	};
+
+	var HeaderNavigation = React.createClass({
+	    displayName: 'HeaderNavigation',
+
+	    mixins: [_reactRouter.State, _reactRouter.Navigation],
+	    getInitialState: function getInitialState() {
+	        return { selectedFlag: 'United-States' };
+	    },
+	    handleSkinSwitch: function handleSkinSwitch(e) {
+	        e.preventDefault();
+	        e.stopPropagation();
+	        var vexContent;
+	        vex.dialog.open({
+	            afterOpen: function afterOpen($vexContent) {
+	                vexContent = $vexContent;
+	                return React.render(React.createElement(Skins, { id: $vexContent.data().vex.id }), $vexContent.get(0));
+	            },
+	            afterClose: function afterClose() {
+	                React.unmountComponentAtNode(vexContent.get(0));
+	            }
+	        });
+	    },
+	    changeFlag: function changeFlag(props) {
+	        this.setState({
+	            selectedFlag: props.flag
+	        }, function () {
+	            if (props.locale === 'ar') $('html').addClass('arabic');else $('html').removeClass('arabic');
+	            Preloader.show();
+	            l20n.changeLocale(props.locale);
+	        });
+	    },
+	    l20nContextReady: function l20nContextReady(e) {
+	        var selectedFlag = l20n.ctx.getSync('selectedFlag');
+	        this.refs['flag-menu'].selectItem('flag', selectedFlag);
+	        this.setState({
+	            selectedFlag: selectedFlag
+	        }, function () {
+	            Preloader.hide();
+	        });
+	    },
+	    changeSettingsMenuItemState: function changeSettingsMenuItemState(item) {
+	        if (item === 'fluid' || item === null || item === undefined) {
+	            this.refs['settings-menu'].selectItem('data-val', 'fluid');
+	            $('html').removeClass('boxed');
+	        } else if (item === 'boxed') {
+	            this.refs['settings-menu'].selectItem('data-val', 'boxed');
+	            $('html').addClass('boxed');
+	        }
+	        setTimeout(function () {
+	            $(window).trigger('resize');
+	        }, 300);
+	    },
+	    changeViewport: function changeViewport(props) {
+	        switch (props['data-type']) {
+	            case 'dimension':
+	                if (props['data-val'] === 'boxed') {
+	                    localStorage.setItem('settingsMenu', 'boxed');
+	                    this.changeSettingsMenuItemState('boxed');
+	                } else {
+	                    localStorage.setItem('settingsMenu', 'fluid');
+	                    this.changeSettingsMenuItemState('fluid');
+	                }
+	                break;
+	            default:
+	                break;
+	        }
+	    },
+	    handleLogout: function handleLogout(e) {
+	        var _this = this;
+
+	        $('body').addClass('fade-out');
+	        setTimeout(function () {
+	            _this.transitionTo('/');
+	        }, 250);
+	    },
+	    componentDidMount: function componentDidMount() {
+	        ReactBootstrap.Dispatcher.on('ctx:ready', this.l20nContextReady);
+	        (function () {
+	            var item = localStorage.getItem('settingsMenu');
+	            this.changeSettingsMenuItemState(item);
+	            localStorage.setItem('settingsMenu', item || 'fluid');
+	        }).bind(this)();
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        ReactBootstrap.Dispatcher.off('ctx:ready', this.l20nContextReady);
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            NavContent,
+	            _extends({ className: 'pull-right' }, this.props),
+	            React.createElement(
+	                Nav,
+	                { className: 'hidden-xs' },
+	                React.createElement(NavItem, { divider: true }),
+	                React.createElement(DirectNavItem, { glyph: 'user-male', path: '/', className: 'small-font' }),
+	                React.createElement(
+	                    NavItem,
+	                    { dropdown: true, toggleOnHover: true, className: 'small-font collapse-left' },
+	                    React.createElement(
+	                        DropdownButton,
+	                        { nav: true },
+	                        React.createElement(Icon, { bundle: 'fontello', glyph: 'cog-7' })
+	                    ),
+	                    React.createElement(
+	                        Menu,
+	                        { alignRight: true, ref: 'settings-menu', id: 'settings-menu', bsStyle: 'theme', style: { width: 375 }, onItemSelect: this.changeViewport },
+	                        React.createElement(
+	                            MenuItem,
+	                            { header: true },
+	                            React.createElement(Entity, { entity: 'settingsMenuHeading' })
+	                        ),
+	                        React.createElement(
+	                            MenuItem,
+	                            { 'data-type': 'dimension', 'data-val': 'fluid', href: '#', active: true },
+	                            React.createElement(Entity, { entity: 'settingsMenuFluid' })
+	                        ),
+	                        React.createElement(
+	                            MenuItem,
+	                            { 'data-type': 'dimension', 'data-val': 'boxed', href: '#' },
+	                            React.createElement(Entity, { entity: 'settingsMenuBoxed' })
+	                        ),
+	                        React.createElement(
+	                            MenuItem,
+	                            { header: true },
+	                            'Layout'
+	                        ),
+	                        React.createElement(
+	                            MenuItem,
+	                            { header: true },
+	                            'Body Layout'
+	                        ),
+	                        React.createElement(
+	                            MenuItem,
+	                            { noHover: true },
+	                            React.createElement(BodyLayout, null)
+	                        )
+	                    )
+	                ),
+	                React.createElement(NavItem, { divider: true }),
+	                React.createElement(DirectNavItem, { glyph: 'mail-3', path: '/' })
+	            ),
+	            React.createElement(
+	                Nav,
+	                null,
+	                React.createElement(
+	                    NavItem,
+	                    { className: 'logout', href: '#', onClick: this.handleLogout },
+	                    React.createElement(Icon, { bundle: 'fontello', glyph: 'off-1' })
+	                )
+	            )
+	        );
+	    }
+	});
+
+	var Header = (function (_React$Component6) {
+	    _inherits(Header, _React$Component6);
+
+	    function Header() {
+	        _classCallCheck(this, Header);
+
+	        _get(Object.getPrototypeOf(Header.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                Grid,
+	                _extends({ id: 'navbar' }, this.props),
+	                React.createElement(
+	                    Row,
+	                    null,
+	                    React.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        React.createElement(
+	                            NavBar,
+	                            { fixedTop: true, id: 'rubix-nav-header' },
+	                            React.createElement(
+	                                Container,
+	                                { fluid: true },
+	                                React.createElement(
+	                                    Row,
+	                                    null,
+	                                    React.createElement(
+	                                        Col,
+	                                        { xs: 3, visible: 'xs' },
+	                                        React.createElement(_globalJsxSidebar_component.SidebarBtn, null)
+	                                    ),
+	                                    React.createElement(
+	                                        Col,
+	                                        { xs: 6, sm: 4 },
+	                                        React.createElement(Brand, null)
+	                                    ),
+	                                    React.createElement(
+	                                        Col,
+	                                        { xs: 3, sm: 8 },
+	                                        React.createElement(HeaderNavigation, { pressed: this.props.pressed })
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Header;
 	})(React.Component);
 
 	exports['default'] = Header;
@@ -4296,7 +4731,7 @@
 	                    { glyph: 'icon-feather-mail', name: React.createElement(
 	                        'span',
 	                        null,
-	                        'E-mail ',
+	                        'Email ',
 	                        React.createElement(
 	                          BLabel,
 	                          { className: 'bg-darkgreen45 fg-white' },
