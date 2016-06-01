@@ -304,7 +304,6 @@ var HeaderNavigation = React.createClass({
     componentWillUnmount() {
         ReactBootstrap.Dispatcher.off('ctx:ready', this.l20nContextReady);
     },
-    
     render() {
         return (
             <NavContent className='pull-right' {...this.props}>
