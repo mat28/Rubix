@@ -122,7 +122,6 @@ var server = app.listen(process.env.PORT, function() {
     process.send('CONNECTED');
   } catch(e) {}
 });
-
 process.on('uncaughtException', function(err) {
   console.log(arguments);
   process.exit(-1);
